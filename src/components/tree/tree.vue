@@ -110,6 +110,8 @@ export default {
     checkEvent (event) {
       this.$emit('checkEvent',event.target.name); //发布事件广播
       this.hasChecked = this.hasChecked == false ? true : false;
+      event.target.attributes.active = true;
+      console.log(event.target.attributes)
     }    
   },
   computed: {
