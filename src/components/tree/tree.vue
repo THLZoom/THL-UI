@@ -12,6 +12,7 @@
   display: block;
   width: 100%;
   padding: 6px;
+  position: relative;
 }
 
 .ul-1 span:hover {
@@ -38,23 +39,41 @@
   -webkit-appearance: none;  /*去掉input默认样式 */
 }
 .ul-1 input[type='checkBox'] {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 16px;
   border-radius: 2px;
   border: 1px solid #d8dce5;
   vertical-align: bottom;
+  margin: 0;
+  outline: none;
+}
+.checkboxOut{
+  display: inline-block;
+  text-indent: 0;
+}
+.haschecked{
+  background: url('./check.png') no-repeat 0;
 }
 </style>
 <template>
   <ul v-if="data" class="ul-1">
     <li class="li-1" v-for="(item1,key1) in data" :id="item1.id" :class="item1.class" :style="item1.style" :key="item1.uid">
-      <span @click.self="ulCollspan"><input type="checkBox" v-if="checkBox" @click="checkEvent" :name ="item1.uid"> {{item1.label}}</span>
+      <span @click.self="ulCollspan">
+        <div :class="[{haschecked: hasChecked},'checkboxOut']"><input type="checkBox" v-if="checkBox" @click="checkEvent" :name ="item1.uid"></div> 
+        {{item1.label}}
+      </span>
       <ul class="ul-2" v-if="item1.children" style="display: none;">
         <li class="li-2" v-for="(item2,key2) in item1.children" :id="item2.id" :class="item2.class" :style="item2.style" :key="item2.uid">
-          <span @click.self="ulCollspan"><input type="checkBox" v-if="checkBox" @click="checkEvent" :name="item2.uid"> {{item2.label}}</span>
+          <span @click.self="ulCollspan">
+            <input type="checkBox" v-if="checkBox" @click="checkEvent" :name="item2.uid">
+            {{item2.label}}
+          </span>
           <ul class="ul-3" v-if="item2.children" style="display: none;">
             <li class="li-3" v-for="(item3,key3) in  item2.children" :id="item3.id" :class="item3.class" :style="item3.style" :key="item3.uid">
-              <span><input type="checkBox" v-if="checkBox" @click="checkEvent" :name="item3.uid"> {{item3.label}}</span>
+              <span>
+                <input type="checkBox" v-if="checkBox" @click="checkEvent" :name="item3.uid"> 
+                {{item3.label}}
+              </span>
             </li>
           </ul>
         </li>
@@ -77,6 +96,7 @@ export default {
   },
   data() {
     return {
+      hasChecked: true
     }
   },
   methods: {
@@ -88,7 +108,8 @@ export default {
       }
     },
     checkEvent (event) {
-      this.$emit('checkEvent',event.target.name);
+      this.$emit('checkEvent',event.target.name); //发布事件广播
+      this.hasChecked = this.hasChecked == false ? true : false;
     }    
   },
   computed: {

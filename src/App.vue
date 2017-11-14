@@ -2,6 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <Tree :data="data" @checkEvent="getEvent" checkBox></Tree>
+    <i class="fa fa-camera-retro fa-5x"></i>
   </div>
 </template>
 
