@@ -112,6 +112,7 @@ export default {
       this.hasChecked = this.hasChecked == false ? true : false;
       event.target.attributes.active = true;
       console.log(event.target.attributes)
+      console.log(document.body)
     }    
   },
   computed: {
