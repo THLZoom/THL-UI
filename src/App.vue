@@ -1,13 +1,17 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <Tree :data="data" @checkEvent="getEvent" checkBox></Tree>
+    <Tree 
+      :data="data" 
+      @checkEvent="getEvent" 
+      checkBox
+    />
     <i class="fa fa-camera-retro fa-5x"></i>
   </div>
 </template>
 
 <script>
-  import {Tree} from './components/tree/tree.js'
+  import {Tree} from './components/tree/T-tree.js'
   export default {
     name: 'app',
     data(){

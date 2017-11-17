@@ -1,17 +1,21 @@
 # tree
 > ### 文件说明:
-    tree ———+———— tree.vue: vue单文件组件，UI组件源码，包含template,js,css
-            |———— tree.js : tree组件出口文件
+    tree ———+———— T-tree.vue: vue单文件组件，UI组件源码，包含template,js,css
+            |———— T-tree.js : tree组件出口文件
 > ### 组件说明
     1.组件调用
         
       步骤一：引入tree 组件文件夹
-      步骤二：在父组件js中引入组件  import {Tree} from './components/tree/tree.js'
+      步骤二：在父组件js中引入组件  import {Tree} from './components/tree/T-tree.js'
       步骤三：在父组件中注册 Tree 组件
       步骤四：在相应的节点处添加Tree节点并绑定数据  <Tree :data="data"></Tree> 
     
     2.组件使用
-    <Tree :data="data" @checkEvent="getEvent" checkBox></Tree>
+    <Tree 
+      :data="data" 
+      @checkEvent="getEvent" 
+      checkBox 
+    />
       
     data:  
       data ———— tree组件渲染的数据集合，数据类型为 数组(Array),必传    

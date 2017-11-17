@@ -2,7 +2,7 @@
   "name": "my-components",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "谈慧龙 <852537973@qq.com>",
+  "author": "",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -14,6 +14,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "element-ui": "^2.0.4",
     "font-awesome": "^4.7.0",
     "vue": "^2.5.2"
   },
