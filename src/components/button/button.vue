@@ -14,7 +14,6 @@
         default: ''
       },
       disabled: Boolean,
-
     }
   }
 </script>
